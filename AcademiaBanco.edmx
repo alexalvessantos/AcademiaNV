@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="academiaModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_aluno">
+          <Key>
+            <PropertyRef Name="IdAluno" />
+          </Key>
+          <Property Name="IdAluno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CEP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bairro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoPlano" Type="int" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="DataFim" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_aula">
+          <Key>
+            <PropertyRef Name="IdAula" />
+          </Key>
+          <Property Name="IdAula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoraInicio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="HoraFim" Type="time" Precision="7" Nullable="false" />
+          <Property Name="IdInstrutor" Type="int" Nullable="false" />
+          <Property Name="IdTipoAula" Type="int" Nullable="false" />
+          <Property Name="DiaSegunda" Type="bit" Nullable="false" />
+          <Property Name="DiaTerca" Type="bit" Nullable="false" />
+          <Property Name="DiaQuarta" Type="bit" Nullable="false" />
+          <Property Name="DiaQuinta" Type="bit" Nullable="false" />
+          <Property Name="DiaSexta" Type="bit" Nullable="false" />
+          <Property Name="DiaSabado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_fisioterapeuta">
+          <Key>
+            <PropertyRef Name="IdFisioterapeuta" />
+          </Key>
+          <Property Name="IdFisioterapeuta" Type="int" Nullable="false" />
+          <Property Name="IdFuncionario" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_funcionario">
+          <Key>
+            <PropertyRef Name="IdFuncionario" />
+          </Key>
+          <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Funcao" Type="int" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_funcionario_funcao">
+          <Key>
+            <PropertyRef Name="IdFuncao" />
+          </Key>
+          <Property Name="IdFuncao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_instrutor">
+          <Key>
+            <PropertyRef Name="IdInstrutor" />
+          </Key>
+          <Property Name="IdInstrutor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoAtividade" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_pagamento">
+          <Key>
+            <PropertyRef Name="IdPagamento" />
+          </Key>
+          <Property Name="IdPagamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAluno" Type="int" Nullable="false" />
+          <Property Name="IdTipoPlano" Type="int" Nullable="false" />
+          <Property Name="DataPagamento" Type="datetime" Nullable="false" />
+          <Property Name="DataProximoPagamento" Type="datetime" Nullable="false" />
+          <Property Name="Situacao" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipo_atividade">
+          <Key>
+            <PropertyRef Name="IdAtividade" />
+          </Key>
+          <Property Name="IdAtividade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescricaoAtividade" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipo_plano">
+          <Key>
+            <PropertyRef Name="IdTipoPlano" />
+          </Key>
+          <Property Name="IdTipoPlano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescricaoPlano" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="academiaModel1StoreContainer">
+          <EntitySet Name="tb_aluno" EntityType="Self.tb_aluno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_aula" EntityType="Self.tb_aula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_fisioterapeuta" EntityType="Self.tb_fisioterapeuta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_funcionario" EntityType="Self.tb_funcionario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_funcionario_funcao" EntityType="Self.tb_funcionario_funcao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_instrutor" EntityType="Self.tb_instrutor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_pagamento" EntityType="Self.tb_pagamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tipo_atividade" EntityType="Self.tb_tipo_atividade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tipo_plano" EntityType="Self.tb_tipo_plano" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="academiaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_aluno">
+          <Key>
+            <PropertyRef Name="IdAluno" />
+          </Key>
+          <Property Name="IdAluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoPlano" Type="Int32" Nullable="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFim" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_aula">
+          <Key>
+            <PropertyRef Name="IdAula" />
+          </Key>
+          <Property Name="IdAula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="HoraFim" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="IdInstrutor" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoAula" Type="Int32" Nullable="false" />
+          <Property Name="DiaSegunda" Type="Boolean" Nullable="false" />
+          <Property Name="DiaTerca" Type="Boolean" Nullable="false" />
+          <Property Name="DiaQuarta" Type="Boolean" Nullable="false" />
+          <Property Name="DiaQuinta" Type="Boolean" Nullable="false" />
+          <Property Name="DiaSexta" Type="Boolean" Nullable="false" />
+          <Property Name="DiaSabado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_fisioterapeuta">
+          <Key>
+            <PropertyRef Name="IdFisioterapeuta" />
+          </Key>
+          <Property Name="IdFisioterapeuta" Type="Int32" Nullable="false" />
+          <Property Name="IdFuncionario" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_funcionario">
+          <Key>
+            <PropertyRef Name="IdFuncionario" />
+          </Key>
+          <Property Name="IdFuncionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Funcao" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_funcionario_funcao">
+          <Key>
+            <PropertyRef Name="IdFuncao" />
+          </Key>
+          <Property Name="IdFuncao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_instrutor">
+          <Key>
+            <PropertyRef Name="IdInstrutor" />
+          </Key>
+          <Property Name="IdInstrutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoAtividade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_pagamento">
+          <Key>
+            <PropertyRef Name="IdPagamento" />
+          </Key>
+          <Property Name="IdPagamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAluno" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoPlano" Type="Int32" Nullable="false" />
+          <Property Name="DataPagamento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataProximoPagamento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Situacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipo_atividade">
+          <Key>
+            <PropertyRef Name="IdAtividade" />
+          </Key>
+          <Property Name="IdAtividade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescricaoAtividade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipo_plano">
+          <Key>
+            <PropertyRef Name="IdTipoPlano" />
+          </Key>
+          <Property Name="IdTipoPlano" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescricaoPlano" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="academiaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_aluno" EntityType="Self.tb_aluno" />
+          <EntitySet Name="tb_aula" EntityType="Self.tb_aula" />
+          <EntitySet Name="tb_fisioterapeuta" EntityType="Self.tb_fisioterapeuta" />
+          <EntitySet Name="tb_funcionario" EntityType="Self.tb_funcionario" />
+          <EntitySet Name="tb_funcionario_funcao" EntityType="Self.tb_funcionario_funcao" />
+          <EntitySet Name="tb_instrutor" EntityType="Self.tb_instrutor" />
+          <EntitySet Name="tb_pagamento" EntityType="Self.tb_pagamento" />
+          <EntitySet Name="tb_tipo_atividade" EntityType="Self.tb_tipo_atividade" />
+          <EntitySet Name="tb_tipo_plano" EntityType="Self.tb_tipo_plano" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="academiaModel1StoreContainer" CdmEntityContainer="academiaEntities1">
+          <EntitySetMapping Name="tb_aluno">
+            <EntityTypeMapping TypeName="academiaModel1.tb_aluno">
+              <MappingFragment StoreEntitySet="tb_aluno">
+                <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TipoPlano" ColumnName="TipoPlano" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_aula">
+            <EntityTypeMapping TypeName="academiaModel1.tb_aula">
+              <MappingFragment StoreEntitySet="tb_aula">
+                <ScalarProperty Name="IdAula" ColumnName="IdAula" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFim" ColumnName="HoraFim" />
+                <ScalarProperty Name="IdInstrutor" ColumnName="IdInstrutor" />
+                <ScalarProperty Name="IdTipoAula" ColumnName="IdTipoAula" />
+                <ScalarProperty Name="DiaSegunda" ColumnName="DiaSegunda" />
+                <ScalarProperty Name="DiaTerca" ColumnName="DiaTerca" />
+                <ScalarProperty Name="DiaQuarta" ColumnName="DiaQuarta" />
+                <ScalarProperty Name="DiaQuinta" ColumnName="DiaQuinta" />
+                <ScalarProperty Name="DiaSexta" ColumnName="DiaSexta" />
+                <ScalarProperty Name="DiaSabado" ColumnName="DiaSabado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_fisioterapeuta">
+            <EntityTypeMapping TypeName="academiaModel1.tb_fisioterapeuta">
+              <MappingFragment StoreEntitySet="tb_fisioterapeuta">
+                <ScalarProperty Name="IdFisioterapeuta" ColumnName="IdFisioterapeuta" />
+                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_funcionario">
+            <EntityTypeMapping TypeName="academiaModel1.tb_funcionario">
+              <MappingFragment StoreEntitySet="tb_funcionario">
+                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Funcao" ColumnName="Funcao" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_funcionario_funcao">
+            <EntityTypeMapping TypeName="academiaModel1.tb_funcionario_funcao">
+              <MappingFragment StoreEntitySet="tb_funcionario_funcao">
+                <ScalarProperty Name="IdFuncao" ColumnName="IdFuncao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_instrutor">
+            <EntityTypeMapping TypeName="academiaModel1.tb_instrutor">
+              <MappingFragment StoreEntitySet="tb_instrutor">
+                <ScalarProperty Name="IdInstrutor" ColumnName="IdInstrutor" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="TipoAtividade" ColumnName="TipoAtividade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pagamento">
+            <EntityTypeMapping TypeName="academiaModel1.tb_pagamento">
+              <MappingFragment StoreEntitySet="tb_pagamento">
+                <ScalarProperty Name="IdPagamento" ColumnName="IdPagamento" />
+                <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+                <ScalarProperty Name="IdTipoPlano" ColumnName="IdTipoPlano" />
+                <ScalarProperty Name="DataPagamento" ColumnName="DataPagamento" />
+                <ScalarProperty Name="DataProximoPagamento" ColumnName="DataProximoPagamento" />
+                <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tipo_atividade">
+            <EntityTypeMapping TypeName="academiaModel1.tb_tipo_atividade">
+              <MappingFragment StoreEntitySet="tb_tipo_atividade">
+                <ScalarProperty Name="IdAtividade" ColumnName="IdAtividade" />
+                <ScalarProperty Name="DescricaoAtividade" ColumnName="DescricaoAtividade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tipo_plano">
+            <EntityTypeMapping TypeName="academiaModel1.tb_tipo_plano">
+              <MappingFragment StoreEntitySet="tb_tipo_plano">
+                <ScalarProperty Name="IdTipoPlano" ColumnName="IdTipoPlano" />
+                <ScalarProperty Name="DescricaoPlano" ColumnName="DescricaoPlano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

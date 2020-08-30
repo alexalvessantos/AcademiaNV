@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="academiaModel1StoreContainer" CdmEntityContainer="academiaEntities1">
+    <EntitySetMapping Name="tb_aluno">
+      <EntityTypeMapping TypeName="academiaModel1.tb_aluno">
+        <MappingFragment StoreEntitySet="tb_aluno">
+          <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="TipoPlano" ColumnName="TipoPlano" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_aula">
+      <EntityTypeMapping TypeName="academiaModel1.tb_aula">
+        <MappingFragment StoreEntitySet="tb_aula">
+          <ScalarProperty Name="IdAula" ColumnName="IdAula" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFim" ColumnName="HoraFim" />
+          <ScalarProperty Name="IdInstrutor" ColumnName="IdInstrutor" />
+          <ScalarProperty Name="IdTipoAula" ColumnName="IdTipoAula" />
+          <ScalarProperty Name="DiaSegunda" ColumnName="DiaSegunda" />
+          <ScalarProperty Name="DiaTerca" ColumnName="DiaTerca" />
+          <ScalarProperty Name="DiaQuarta" ColumnName="DiaQuarta" />
+          <ScalarProperty Name="DiaQuinta" ColumnName="DiaQuinta" />
+          <ScalarProperty Name="DiaSexta" ColumnName="DiaSexta" />
+          <ScalarProperty Name="DiaSabado" ColumnName="DiaSabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_fisioterapeuta">
+      <EntityTypeMapping TypeName="academiaModel1.tb_fisioterapeuta">
+        <MappingFragment StoreEntitySet="tb_fisioterapeuta">
+          <ScalarProperty Name="IdFisioterapeuta" ColumnName="IdFisioterapeuta" />
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_funcionario">
+      <EntityTypeMapping TypeName="academiaModel1.tb_funcionario">
+        <MappingFragment StoreEntitySet="tb_funcionario">
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Funcao" ColumnName="Funcao" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_funcionario_funcao">
+      <EntityTypeMapping TypeName="academiaModel1.tb_funcionario_funcao">
+        <MappingFragment StoreEntitySet="tb_funcionario_funcao">
+          <ScalarProperty Name="IdFuncao" ColumnName="IdFuncao" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_instrutor">
+      <EntityTypeMapping TypeName="academiaModel1.tb_instrutor">
+        <MappingFragment StoreEntitySet="tb_instrutor">
+          <ScalarProperty Name="IdInstrutor" ColumnName="IdInstrutor" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="TipoAtividade" ColumnName="TipoAtividade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_pagamento">
+      <EntityTypeMapping TypeName="academiaModel1.tb_pagamento">
+        <MappingFragment StoreEntitySet="tb_pagamento">
+          <ScalarProperty Name="IdPagamento" ColumnName="IdPagamento" />
+          <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+          <ScalarProperty Name="IdTipoPlano" ColumnName="IdTipoPlano" />
+          <ScalarProperty Name="DataPagamento" ColumnName="DataPagamento" />
+          <ScalarProperty Name="DataProximoPagamento" ColumnName="DataProximoPagamento" />
+          <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipo_atividade">
+      <EntityTypeMapping TypeName="academiaModel1.tb_tipo_atividade">
+        <MappingFragment StoreEntitySet="tb_tipo_atividade">
+          <ScalarProperty Name="IdAtividade" ColumnName="IdAtividade" />
+          <ScalarProperty Name="DescricaoAtividade" ColumnName="DescricaoAtividade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipo_plano">
+      <EntityTypeMapping TypeName="academiaModel1.tb_tipo_plano">
+        <MappingFragment StoreEntitySet="tb_tipo_plano">
+          <ScalarProperty Name="IdTipoPlano" ColumnName="IdTipoPlano" />
+          <ScalarProperty Name="DescricaoPlano" ColumnName="DescricaoPlano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

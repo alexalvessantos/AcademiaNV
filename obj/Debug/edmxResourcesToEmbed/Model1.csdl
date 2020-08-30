@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="academiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_aluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoPlano" Type="Int32" Nullable="false" />
+    <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataFim" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tb_aula">
+    <Key>
+      <PropertyRef Name="IdAula" />
+    </Key>
+    <Property Name="IdAula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HoraFim" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="IdInstrutor" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoAula" Type="Int32" Nullable="false" />
+    <Property Name="DiaSegunda" Type="Boolean" Nullable="false" />
+    <Property Name="DiaTerca" Type="Boolean" Nullable="false" />
+    <Property Name="DiaQuarta" Type="Boolean" Nullable="false" />
+    <Property Name="DiaQuinta" Type="Boolean" Nullable="false" />
+    <Property Name="DiaSexta" Type="Boolean" Nullable="false" />
+    <Property Name="DiaSabado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_instrutor">
+    <Key>
+      <PropertyRef Name="IdInstrutor" />
+    </Key>
+    <Property Name="IdInstrutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoAtividade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_pagamento">
+    <Key>
+      <PropertyRef Name="IdPagamento" />
+    </Key>
+    <Property Name="IdPagamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoPlano" Type="Int32" Nullable="false" />
+    <Property Name="DataPagamento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataProximoPagamento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Situacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_tipo_atividade">
+    <Key>
+      <PropertyRef Name="IdAtividade" />
+    </Key>
+    <Property Name="IdAtividade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescricaoAtividade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_tipo_plano">
+    <Key>
+      <PropertyRef Name="IdTipoPlano" />
+    </Key>
+    <Property Name="IdTipoPlano" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescricaoPlano" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="academiaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_aluno" EntityType="Self.tb_aluno" />
+    <EntitySet Name="tb_aula" EntityType="Self.tb_aula" />
+    <EntitySet Name="tb_instrutor" EntityType="Self.tb_instrutor" />
+    <EntitySet Name="tb_pagamento" EntityType="Self.tb_pagamento" />
+    <EntitySet Name="tb_tipo_atividade" EntityType="Self.tb_tipo_atividade" />
+    <EntitySet Name="tb_tipo_plano" EntityType="Self.tb_tipo_plano" />
+  </EntityContainer>
+</Schema>
